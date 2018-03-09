@@ -33,14 +33,19 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 
 var Player = function (x, y) {
-  this.defaultX = 200;
-  this.defaultY = 400;
-  this.x = this.defaultX;
-  this.y = this.defaultY;
+  this.x = 200;
+  this.y = 400;
   this.sprite = 'images/char-boy.png';
 }
 
 Player.prototype.update = function() {
+
+  // If the player reaches the water, so y > -40,
+  // set player`s position to default
+  if (this.y < -40) {
+    this.x = 200;
+    this.y = 400;
+  }
 }
 
 Player.prototype.render = function() {
