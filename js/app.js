@@ -18,8 +18,15 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.x = this.x + this.speed * dt;
 
+    // Reset enemies when reaching the right border of the canvas
     if (this.x > 505){
       this.x = 0;
+    }
+
+    // Define when enemies and player collide
+    if (this.x + 50 > player.x && this.x < player.x + 20 &&
+        this.y + 45 > player.y && this.y < player.y + 40) {
+        player.reset();
     }
 };
 
