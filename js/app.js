@@ -33,23 +33,20 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 
 var Player = function (x, y) {
-  this.x = 200;
-  this.y = 400;
-  this.sprite = 'images/char-boy.png';
+    this.x = 200;
+    this.y = 400;
+    this.sprite = 'images/char-boy.png';
 }
 
 Player.prototype.update = function() {
-
   // If the player reaches the water, so y > -40,
   // set player`s position to default
   if (this.y < -40) {
-    this.x = 200;
-    this.y = 400;
+    player.reset();
   }
 }
 
 Player.prototype.render = function() {
-  "use strict";
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
@@ -65,6 +62,12 @@ Player.prototype.handleInput = function(keypressed) {
   }
 }
 
+// Resets the location of the player to start position
+
+Player.prototype.reset = function() {
+    this.x = 200;
+    this.y = 400;
+}
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
