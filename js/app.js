@@ -50,6 +50,8 @@ Player.prototype.update = function() {
   // set player`s position to default
   if (this.y < -40) {
     player.reset();
+    score += 10;
+    changeScore();
   }
 }
 
@@ -100,3 +102,11 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+// Score that adds 10 points every time the player reaches the water
+
+let score = 0;
+
+function changeScore () {
+  document.getElementById('score').innerHTML = score;
+}
