@@ -61,13 +61,13 @@ Player.prototype.render = function() {
 
 Player.prototype.handleInput = function(keypressed) {
   if (keypressed == 'left' && this.x > 0) {
-    this.x -= 50;
+    this.x -= 101;
   } else if (keypressed == 'right' && this.x < 400) {
-    this.x += 50;
+    this.x += 101;
   } else if (keypressed == 'up' && this.y > -50) {
-    this.y -= 50;
+    this.y -= 90;
   } else if (keypressed == 'down' && this.y < 400) {
-    this.y += 50;
+    this.y += 90;
   }
 }
 
