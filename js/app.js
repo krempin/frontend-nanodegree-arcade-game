@@ -2,6 +2,7 @@
 const Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
+    "use strict";
     this.x = x;
     this.y = y;
     this.speed = speed;
@@ -16,6 +17,7 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    "use strict";
     this.x = this.x + this.speed * dt;
 
     // Reset enemies when reaching the right border of the canvas
@@ -32,6 +34,7 @@ Enemy.prototype.update = function(dt) {
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
+    "use strict";
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
@@ -40,6 +43,7 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 
 const Player = function (x, y) {
+    "use strict";
     this.x = 200;
     this.y = 400;
     this.sprite = 'images/char-boy.png';
@@ -48,6 +52,7 @@ const Player = function (x, y) {
 Player.prototype.update = function() {
   // If the player reaches the water, so y > -40,
   // set player`s position to default
+  "use strict";
   if (this.y < -40) {
     player.reset();
     score += 10;
@@ -56,10 +61,12 @@ Player.prototype.update = function() {
 }
 
 Player.prototype.render = function() {
+  "use strict";
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
 Player.prototype.handleInput = function(keypressed) {
+  "use strict";
   if (keypressed == 'left' && this.x > 0) {
     this.x -= 101;
   } else if (keypressed == 'right' && this.x < 400) {
@@ -74,6 +81,7 @@ Player.prototype.handleInput = function(keypressed) {
 // Resets the location of the player to start position
 
 Player.prototype.reset = function() {
+    "use strict";
     this.x = 200;
     this.y = 400;
 }
@@ -108,5 +116,6 @@ document.addEventListener('keyup', function(e) {
 let score = 0;
 
 function changeScore () {
+  "use strict";
   document.getElementById('score').innerHTML = score;
 }
