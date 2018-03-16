@@ -25,11 +25,15 @@ Enemy.prototype.update = function(dt) {
       this.x = 0;
     }
 
-    // Define when enemies and player collide
-    if (this.x + 50 > player.x && this.x < player.x + 20 &&
-        this.y + 45 > player.y && this.y < player.y + 40) {
-        player.reset();
-    }
+    this.checkCollisions();
+};
+
+//Check collision of enemy and player
+Enemy.prototype.checkCollisions = function() {
+  if (this.x + 50 > player.x && this.x < player.x + 20 &&
+      this.y + 45 > player.y && this.y < player.y + 40) {
+      player.reset();
+  }
 };
 
 // Draw the enemy on the screen, required method for game
