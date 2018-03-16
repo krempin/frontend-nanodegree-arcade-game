@@ -58,7 +58,7 @@ Player.prototype.update = function() {
   // set player`s position to default
   "use strict";
   if (this.y < -40) {
-    player.reset();
+    this.reset();
     score += 10;
     changeScore();
   }
